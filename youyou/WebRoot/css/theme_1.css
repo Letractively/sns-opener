@@ -1,0 +1,51 @@
+/*  全局style中与主体相关的css */
+#global_header {
+	background: #ff0000;
+	border-bottom: #e5e5e5 1px solid;
+}
+
+#nav li:hover {
+	background-color: #d5d5d5;
+}
+
+#nav a,#mes_log_reg span a {
+	color: #000;
+}
+
+#footer {
+	background-color: #FFF;
+	border-top: #A7C7F7 solid 1px;
+}
+
+.nav_current {
+	background-color: #b5b5b5;
+}
+
+/*下面的是针对 myIndex.jsp的theme 样式 
+#wrapper_myIndex {
+	background-color: #F5F5F5;
+}
+
+#ad {
+	background: #660000;
+}
+
+#tip {
+	background: #0F0;
+}
+
+#left {
+	border-left: #E5E5E5 solid 1px;
+	border-right: #E5E5E5 solid 1px;
+	background-color: #FFF;
+}
+#right{
+		background-color: #F5F5F5;
+}
+
+#host img{
+	border: 1px solid #999;
+	}
+	
+	
+	*/

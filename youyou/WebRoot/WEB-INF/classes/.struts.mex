@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="userRelated" location="0,0" size="0,0">
+    <action name="userRegister" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="login.jsp" />
+      </result>
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="register.jsp" />
+      </result>
+    </action>
+    <action name="userLogin" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="input">
+        <resourceEdge source="input" routing="0" target="error.jsp" />
+      </result>
+    </action>
+    <action name="sendTwitter" location="0,0" size="0,0">
+      <result name="success" />
+      <result name="error">
+        <resourceEdge source="error" routing="0" target="error.jsp" />
+      </result>
+    </action>
+    <action name="getAllTwitter" location="0,0" size="0,0">
+      <result name="success">
+        <resourceEdge source="success" routing="0" target="myIndex.jsp" />
+      </result>
+      <result name="success" />
+    </action>
+  </package>
+  <webResource name="index.jsp" path="/index.jsp" location="586,46" size="0,0" />
+  <webResource name="register.jsp" path="/register.jsp" location="421,218" size="0,0" />
+  <webResource name="login.jsp" path="/login.jsp" location="28,138" size="0,0" />
+  <webResource name="myIndex.jsp" path="/myIndex.jsp" location="0,0" size="0,0" />
+  <webResource name="error.jsp" path="/error.jsp" location="0,0" size="0,0" />
+</Struts2Diagram>
+

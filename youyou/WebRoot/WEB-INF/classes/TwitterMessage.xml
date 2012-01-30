@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="Message">
+	<typeAlias alias="TwitterMessage" type="edu.qust.xmc.youyou.beans.TwitterMessage" />
+
+	<!--
+		<select id="selectAllMessage" resultClass="User"> select * from
+		Message </select>
+	-->
+	<insert id="insertTwitter" parameterClass="TwitterMessage">
+		insert into
+		twitter(id,userId,content)
+		values(#id#,#userId#,#content#)
+
+	</insert>
+	<select id="getAllTwitter" resultClass="TwitterMessage">
+		select * from twitter
+		order by cTime desc 
+	</select>
+
+	<select id="getAllTwitterByUserId" parameterClass="int"
+		resultClass="TwitterMessage">
+		select *
+		from twitter
+		where userId=#userId#
+		order by cTime desc
+	</select>
+	<select id="getAllTwitterByObserverId" resultClass="TwitterMessage"
+		parameterClass="int">
+		select * from twitter
+		where userId in(select publisherId from userrelation where observerId=#userId#)
+		order by cTime desc		
+	</select>
+</sqlMap>
