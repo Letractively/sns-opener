@@ -1,0 +1,92 @@
+@charset "utf-8";
+
+/* CSS Document */
+body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div {
+	margin: 0;
+	padding: 0;
+	border-width: 0;
+}
+
+.clear {
+	clear: both;
+}
+
+#global_header {
+	position: fixed;
+	height: 33px;
+	left: 0;
+	top: 0;
+	width: 100%;
+	z-index: 9998;
+	line-height: 35px;
+}
+
+#header {
+	width: 960px;
+	height: 33px;
+	margin: 0 auto;
+}
+
+#header img,#nav {
+	float: left;
+}
+
+#nav li {
+	padding-left: 10px;
+	padding-right: 10px;
+	float: left;
+	height: 33px;
+	list-style-type: none;
+	line-height: 30px;
+}
+
+
+
+#nav a,#mes_log_reg span a {
+	font-family: Arial, Helvetica, sans-serif;
+	text-decoration: none;
+}
+
+#search {
+	width: 200px;
+	height: 18px;
+	float: left;
+	margin-left: 50px;
+	margin-top: 5px;
+}
+
+#mes_log_reg {
+	float: right;
+}
+
+#mes_log_reg span {
+	margin-left: 10px;
+	font-size: 14px;
+}
+
+#mes_log_reg span a {
+	font-size: 14px;
+}
+
+#wrapper {
+	margin: 0 auto;
+	width: 800px;
+	margin-top: 50px;
+}
+
+#footer {
+	margin: 0 auto;
+	margin-top: 30px;
+	width: 800px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	
+}
+
+#footer a {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	text-decoration: none;
+}
+

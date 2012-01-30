@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="Actions" extends="struts-default">
+		<interceptors>
+			<interceptor name="authority"
+				class="edu.qust.xmc.youyou.interceptor.AuthorityInterceptor"></interceptor>
+			<interceptor-stack name="youyouStack">
+				<interceptor-ref name="authority" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="youyouStack" />
+
+		<global-results>
+			<!-- 下面定义的结果对所有的Action都有效 -->
+			<result name="login">/login.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</global-results>
+
+		<action name="userRegister" class="edu.qust.xmc.youyou.action.RegisterAction">
+			<result name="input">/register.jsp</result>
+		</action>
+		<action name="userLogin" class="edu.qust.xmc.youyou.action.LoginAction">
+			<result name="success" type="redirect">getAllTwitterIConcern.action
+			</result>
+		</action>
+
+		<action name="sendTwitter" class="edu.qust.xmc.youyou.action.SendTwitterAction">
+		</action>
+		<action name="getAllTwitterIPublished"
+			class="edu.qust.xmc.youyou.action.GetAllTwitterIPublishedAction">
+			<result name="success">/WEB-INF/jsp/me.jsp</result>
+		</action>
+		<action name="getAllTwitterIConcern"
+			class="edu.qust.xmc.youyou.action.GetAllTwitterIConcernAction">
+			<result name="success">/WEB-INF/jsp/myIndex.jsp</result>
+		</action>
+		<action name="getAllUserIConcern" class="edu.qust.xmc.youyou.action.GetUserIConcernAction">
+			<result name="success" type="chain">getAllUserConcernMe</result>
+		</action>
+		<action name="getAllUserConcernMe" class="edu.qust.xmc.youyou.action.GetAllUserConcernMe" method="getAllUserConcernMe">
+			<result name="success">/WEB-INF/jsp/circle.jsp</result>
+		</action>
+		<action name="getAllUserConcernMeJSON" class="edu.qust.xmc.youyou.action.GetAllUserConcernMe" method="getAllUserConcernMeJSON">
+		</action>
+		<action name="getUserInfo" class="edu.qust.xmc.youyou.action.GetUserInfoAction">
+			<result name="success">/WEB-INF/jsp/userInfo.jsp</result>
+		</action>
+		<action name="IWillConcern"
+			class="edu.qust.xmc.youyou.action.IWillConcernOrNotAction" method="IWillConcern">
+		</action>
+		<action name="IWillNotConcern"
+			class="edu.qust.xmc.youyou.action.IWillConcernOrNotAction" method="IWillNotConcern"></action>
+		<action name="changeTheme" class="edu.qust.xmc.youyou.action.ThemeAction"
+			method="changeTheme"></action>
+	</package>
+</struts>    

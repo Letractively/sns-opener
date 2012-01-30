@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="UserRelation">
+	<!-- Use type aliases to avoid typing the full classname every time. -->
+	<typeAlias alias="UserRelation" type="edu.qust.xmc.youyou.beans.UserRelation" />
+	<typeAlias alias="User" type="edu.qust.xmc.youyou.beans.User" />
+	<insert id="insertUserRelation" parameterClass="UserRelation">
+		insert into
+		userRelation(publisherId,observerId)
+		values(#publisherId#,#observerId#)
+
+	</insert>
+	<select id="getAllPublisherByObserverId" parameterClass="int"
+		resultClass="User">
+		select * from user
+		where `user`.id in(SELECT publisherId
+		from userrelation where
+		observerId=#userId#)
+	</select>
+	<insert id="delUserRelationByIds" parameterClass="UserRelation">
+		delete from
+		userRelation
+		where publisherId=#publisherId# and
+		ObserverId=#observerId#
+	</insert>
+	<select id="getAllObserverByPublisherId" parameterClass="int"
+		resultClass="User">
+		select * from user
+		where `user`.id in(select observerId
+		from
+		userrelation where publisherId=7)
+	</select>
+</sqlMap>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="User">
+	<!-- Use type aliases to avoid typing the full classname every time. -->
+	<typeAlias alias="User" type="edu.qust.xmc.youyou.beans.User" />
+	<typeAlias alias="UserTheme" type="edu.qust.xmc.youyou.beans.UserTheme"/>
+	<!--
+		Select with no parameters using the result map for Account class.
+	-->
+	<select id="selectAllUsers" resultClass="User">
+		select * from user
+	</select>
+	<!-- MySQL Last Insert Id -->
+	<insert id="insertUser" parameterClass="User">
+		insert into
+		user( name,
+		pwd, email, man)
+		values(#name#,#pwd#,#email#,#man#)
+
+	</insert>
+	<select id="getUserById" resultClass="User" parameterClass="int">
+		select * from user where id=#id#
+	</select>
+	<select id="getUserByEmail" resultClass="User" parameterClass="String">
+		select * from user where email=#email#
+	</select>
+	<update id="updatTheme" parameterClass="UserTheme">
+		update user
+		set themeId=#themeId# 
+		where id=#id#
+	</update>
+</sqlMap>
