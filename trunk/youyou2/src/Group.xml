@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="UserRelation">
+
+	<typeAlias alias="Group" type="edu.qust.xmc.youyou.beans.Group" />
+	<select id="getAllGroupsByUserId" parameterClass="int"
+		resultClass="Group">
+		select * from usergroup
+		where createUserId=#userId#
+	</select>
+	<insert id="insertGroup" parameterClass="Group">
+		insert into
+		usergroup(createUserId,groupName)
+		values(#createUserId#,#groupName#)
+	</insert>
+	<update id="updateGroupByName" parameterClass="Group">
+		update usergroup
+		set groupName=#groupName#
+		where groupId=#groupId#
+	</update>
+	<select id="getGroupByUserIdAndName" parameterClass="Group"
+		resultClass="Group">
+		select * from usergroup
+		where groupName=#groupName# and
+		groupName=#groupName#
+	</select>
+	<delete id="deleteByGroupId" parameterClass="int">
+		delete from usergroup
+		where groupId=#groupId#
+	</delete>
+</sqlMap>
