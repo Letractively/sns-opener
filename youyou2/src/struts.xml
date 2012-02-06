@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="Actions" extends="struts-default">
+		<interceptors>
+			<interceptor name="authority"
+				class="edu.qust.xmc.youyou.interceptor.AuthorityInterceptor"></interceptor>
+			<interceptor-stack name="youyouStack">
+				<interceptor-ref name="authority" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="youyouStack" />
+
+		<global-results>
+			<!-- 下面定义的结果对所有的Action都有效 -->
+			<result name="login">/login.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</global-results>
+
+		<action name="userRegister" class="edu.qust.xmc.youyou.action.RegisterAction">
+			<result name="input">/register.jsp</result>
+		</action>
+
+		<action name="userLogin" class="edu.qust.xmc.youyou.action.LoginAction">
+			<result name="success" type="redirect">getTwitterIConcernTop.action
+			</result>
+		</action>
+
+		<action name="sendTwitter" class="edu.qust.xmc.youyou.action.SendTwitterAction">
+		</action>
+
+		<action name="getTwitterIPublishedTop"
+			class="edu.qust.xmc.youyou.action.GetTwitterIPublishedAction" method="getTwitterIPublishedTop">
+			<result name="success">/WEB-INF/jsp/me.jsp</result>
+		</action>
+		<action name="getTwitterIPublishedJSON"
+			class="edu.qust.xmc.youyou.action.GetTwitterIPublishedAction" method="getTwitterIPublishedJSON">
+		</action>
+
+		<action name="getTwitterIConcernTop"
+			class="edu.qust.xmc.youyou.action.GetTwitterIConcernAction" method="getTwitterIConcernTop">
+			<result name="success">/WEB-INF/jsp/myIndex.jsp</result>
+		</action>
+
+		<action name="getTwitterIConcernWithGroupJSON"
+			class="edu.qust.xmc.youyou.action.GetTwitterIConcernAction" method="getTwitterIConcernWithGroupJSON">
+		</action>
+
+		<action name="getUserIConcernTop" class="edu.qust.xmc.youyou.action.GetUserIConcernAction"
+			method="getUserIConcernTop">
+			<result name="success">/WEB-INF/jsp/circle.jsp</result>
+		</action>
+
+		<action name="getUserIConcernWithGroupJSON" class="edu.qust.xmc.youyou.action.GetUserIConcernAction"
+			method="getUserIConcernWithGroupJSON"></action>
+
+		<action name="getUserConcernMeTop"
+			class="edu.qust.xmc.youyou.action.GetUserConcernMeAction" method="getUserConcernMeTop">
+			<result name="success">/WEB-INF/jsp/circle.jsp</result>
+		</action>
+
+		<action name="getUserConcernMeWithGroupJSON"
+			class="edu.qust.xmc.youyou.action.GetUserConcernMeAction" method="getUserConcernMeWithGroupJSON">
+		</action>
+
+		<action name="getUserInfo" class="edu.qust.xmc.youyou.action.GetUserInfoAction"
+			method="getUserInfo">
+			<result name="success">/WEB-INF/jsp/userInfo.jsp</result>
+		</action>
+		<action name="getTwitterPublishedByUserJSON" class="edu.qust.xmc.youyou.action.GetUserInfoAction"
+			method="getTwitterPublishedByUserJSON">
+			<result name="success">/WEB-INF/jsp/userInfo.jsp</result>
+		</action>
+
+		<action name="IWillConcern"
+			class="edu.qust.xmc.youyou.action.IWillConcernOrNotAction" method="IWillConcern">
+		</action>
+
+		<action name="IWillNotConcern"
+			class="edu.qust.xmc.youyou.action.IWillConcernOrNotAction" method="IWillNotConcern"></action>
+		<action name="changeTheme" class="edu.qust.xmc.youyou.action.ThemeAction"
+			method="changeTheme"></action>
+
+		<action name="search" class="edu.qust.xmc.youyou.action.SearchAction">
+		</action>
+
+		<action name="checkEmail" class="edu.qust.xmc.youyou.action.CheckEmailAction"></action>
+
+		<action name="createGroupNameJSON" class="edu.qust.xmc.youyou.action.GroupAction"
+			method="createGroupNameJSON"></action>
+		<action name="renameGroupJSON" class="edu.qust.xmc.youyou.action.GroupAction"
+			method="renameGroupNameJSON"></action>
+		<action name="getAllGroups" class="edu.qust.xmc.youyou.action.GroupAction"
+			method="getAllGroups">
+			<result name="success">/WEB-INF/jsp/groupDiag.jsp</result>
+		</action>
+		<action name="deleteGroupJSON" class="edu.qust.xmc.youyou.action.GroupAction"
+			method="deleteGroupJSON"></action>
+		<action name="getPicture" class="edu.qust.xmc.youyou.action.GetPictureAction">
+			<result name="success">/WEB-INF/jsp/picture.jsp</result>
+		</action>
+		<action name="getCommentJSON" class="edu.qust.xmc.youyou.action.CommentAction"
+			method="getCommentJSON">
+		</action>
+		<action name="addCommentJSON" class="edu.qust.xmc.youyou.action.CommentAction"
+			method="addCommentJSON">
+		</action>
+		<action name="getCommentTipJSON" class="edu.qust.xmc.youyou.action.CommentTipAction"
+			method="getCommentTipJSON">
+		</action>
+		<action name="deleteCommentTipJSON" class="edu.qust.xmc.youyou.action.CommentTipAction"
+			method="deleteCommentTipJSON">
+		</action>
+	</package>
+</struts>    

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="UserRelation">
+
+	<typeAlias alias="Comment" type="edu.qust.xmc.youyou.beans.Comment" />
+	
+	<select id="getCommentByTwitterId" parameterClass="int"
+		resultClass="Comment">
+		select comment.id as id,
+		userId,
+		name as userName,
+		content,
+		comment.cTime as cTime,
+		twitterId,
+		readed
+		from comment,user
+		where twitterId=#twitterId# and userId=user.id
+	</select>
+	<insert id="insertComment" parameterClass="Comment">
+		insert into comment(userId,twitterId,content)
+		values(#userId#,#twitterId#,#content#)
+	</insert>
+	<update id="updateCommentByReaded" parameterClass="int">
+		update Comment 
+		set readed=1
+		where id=#tipId#
+		
+	</update>
+
+</sqlMap>
